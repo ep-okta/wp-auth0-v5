@@ -11,23 +11,23 @@ function mkdirs {
 
 function remove {
     echo "* Removing containers *"
-    docker-compose down
+    docker compose down
 }
 
 function up {
     echo "* Create docker containers *"
-    docker-compose -p ${PROJECT_NAME} up -d wordpress db phpmyadmin wordpress-toolbox
+    docker compose -p ${PROJECT_NAME} up -d wordpress db phpmyadmin wordpress-toolbox
 }
 
 function stop {
     echo "* Stopping containers *"
-    docker-compose -p ${PROJECT_NAME} stop
+    docker compose -p ${PROJECT_NAME} stop
 }
 
 function delete_data {
     rm -rf $LOCAL_DB_DIR
     rm -rf $LOCAL_WP_DIR
-    docker-compose -p ${PROJECT_NAME} rm -f
+    docker compose -p ${PROJECT_NAME} rm -f
 }
 
 function recreate {
@@ -37,21 +37,21 @@ function recreate {
 
 function create {
     mkdirs
-    docker-compose -p ${PROJECT_NAME} up --force-recreate -d wordpress db phpmyadmin wordpress-toolbox
+    docker compose -p ${PROJECT_NAME} up --force-recreate -d wordpress db phpmyadmin wordpress-toolbox
 }
 
 function install_wordpress {
     echo "* Running Wordpress auto configuration *"
-    docker-compose -p ${PROJECT_NAME} run --rm wordpress-toolbox /bin/bash -c /install.sh
+    docker compose -p ${PROJECT_NAME} run --rm wordpress-toolbox /bin/bash -c /install.sh
     echo "* Finished Running Wordpress auto configuration *"
 }
 
 function cli {
-    docker-compose -p ${PROJECT_NAME} run --rm wordpress-toolbox /bin/bash
+    docker compose -p ${PROJECT_NAME} run --rm wordpress-toolbox /bin/bash
 }
 
 function logs {
-    docker-compose -p ${PROJECT_NAME} logs -f -t 2>&1
+    docker compose -p ${PROJECT_NAME} logs -f -t 2>&1
 }
 
 case "$1" in
