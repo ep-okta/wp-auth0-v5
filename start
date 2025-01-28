@@ -42,7 +42,7 @@ function create {
 
 function install_wordpress {
     echo "* Running Wordpress auto configuration *"
-    docker compose -p ${PROJECT_NAME} run --rm wordpress-toolbox /bin/bash -c /install.sh
+    docker compose -p ${PROJECT_NAME} run --rm --user root wordpress-toolbox /bin/bash -c /install.sh
     echo "* Finished Running Wordpress auto configuration *"
 }
 
