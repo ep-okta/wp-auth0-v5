@@ -29,9 +29,14 @@ The DB will be ready when the `db_1` line will output something like:
 Wordpress will be ready when the `wordpress_1` stream will output something like:
 [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
 
-5. Perform configuration of Wordpress + Auth0 plugin
+5. Open a new tab in the terminal
+```
+File -> New Tab
+```
+
+6. Perform configuration of Wordpress + Auth0 plugin
 ```
 sudo ./start configure
 ```
 
-6. Open Wordpress admin login screen in a browser (Default is: `http://localhost:8081/wp-login.php` (port number is set in the `WP_EXT_PORT` variable in .env file. Change it to the port set). Username and password is set in the .env file as `WP_ADMIN_USER` and `WP_ADMIN_PASSWORD` respectively
+7. Open Wordpress admin login screen in a browser (Default is: `http://localhost:8081/wp-login.php` (port number is set in the `WP_EXT_PORT` variable in .env file. Change it to the port set). Username and password is set in the .env file as `WP_ADMIN_USER` and `WP_ADMIN_PASSWORD` respectively
